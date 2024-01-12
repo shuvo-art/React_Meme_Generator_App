@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    margin: 0;
+}
+
+main {
+    padding: 36px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    background-color: #ac2dda;
+    color: #fff;
+    padding: 20px;
+}
+
+.header--image {
+    height: 100%;
+    margin-right: 6px;
+}
+
+.header--title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: auto;
+}
+
+.header--text {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.form {
+    display: grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 17px;
+}
+
+.form--text {
+    border: 1px solid #ac2dda;
+    border-radius: 4px;
+    padding: 0 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-indent: 10px;
+}
+
+.form--button {
+    grid-column: 1 / -1;
+    border: 1px solid #ac2dda;
+    border-radius: 4px;
+    background-color: #ac2dda;
+}
