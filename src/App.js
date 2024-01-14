@@ -12,18 +12,22 @@ export default function App() {
     const [boxs, setBoxs] = React.useState(boxes);
 
     function toggle(id) {
-        setBoxs(prevBox => {
-            const updatedBoxs = prevBox.map(box => {
-                if (box.id === id) {
-                    return {
-                        ...box,
-                        on: !box.on
-                    };
+        setBoxs(prevBoxs => {
+            const newBoxs = [];
+            for (let i = 0; i < prevBoxs.length; i++) {
+                const currentBox = prevBoxs[i];
+                if (currentBox.id === id) {
+                    newBoxs.push({
+                        ...currentBox,
+                        on: !currentBox.on
+                    })
                 }
-                return box;
-            })
-            return updatedBoxs;
-        });
+                else {
+                    newBoxs.push(currentBox)
+                }
+            }
+            return newBoxs;
+        })
     }
 
     const boxComponents = boxs.map(box => (
