@@ -13,20 +13,9 @@ export default function App() {
 
     function toggle(id) {
         setBoxs(prevBoxs => {
-            const newBoxs = [];
-            for (let i = 0; i < prevBoxs.length; i++) {
-                const currentBox = prevBoxs[i];
-                if (currentBox.id === id) {
-                    newBoxs.push({
-                        ...currentBox,
-                        on: !currentBox.on
-                    })
-                }
-                else {
-                    newBoxs.push(currentBox)
-                }
-            }
-            return newBoxs;
+            return prevBoxs.map(box => {
+                return box.id === id ? {...box, on: !box.on} : box
+            })
         })
     }
 
