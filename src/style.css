@@ -140,3 +140,11 @@ main {
     display:inline-block;
     margin:10px;
 }
+
+.joke--question {
+    margin: 10px;
+}
+
+.joke--answer {
+    margin: 10px;
+}

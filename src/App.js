@@ -7,6 +7,8 @@ import AddItem from "./components/AddItem";
 import StateCard from "./components/StateCard";
 import Box from "./components/Box";
 import boxes from "./boxes";
+import jokesData from "./jokesData";
+import Joke from "./components/Joke";
 
 export default function App() {
     const [boxs, setBoxs] = React.useState(boxes);
@@ -20,8 +22,18 @@ export default function App() {
     }
 
     const boxComponents = boxs.map(box => (
-        <Box box={box.on} key={box.id} id={box.id} toggle={toggle} />
+        <Box box={box.on} key={box.id} toggle={() => toggle(box.id)} />
      ))
+
+    const [jokes, setJokes] = React.useState(jokesData);
+
+    function showPunchline(id) {
+        console.log("Clicked!");
+    }
+    
+    const jokeComponents = jokesData.map(joke => (
+        <Joke key={joke.id} setup={joke.setup} punchline={joke.punchline} showPunchline={() => showPunchline(joke.id)} />
+    ))
     return (
         <div>
             <Header />
@@ -31,6 +43,7 @@ export default function App() {
             <AddItem />
             <StateCard />
             {boxComponents}
+            {jokeComponents}
         </div>
     )
 }
