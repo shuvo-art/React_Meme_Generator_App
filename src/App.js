@@ -9,6 +9,8 @@ import Box from "./components/Box";
 import boxes from "./boxes";
 import jokesData from "./jokesData";
 import Joke from "./components/Joke";
+import Form from "./components/Form";
+import Footer from "./components/Footer";
 
 export default function App() {
     const [boxs, setBoxs] = React.useState(boxes);
@@ -30,7 +32,7 @@ export default function App() {
     function showPunchline(id) {
         console.log("Clicked!");
     }
-    
+
     const jokeComponents = jokesData.map(joke => (
         <Joke key={joke.id} setup={joke.setup} punchline={joke.punchline} showPunchline={() => showPunchline(joke.id)} />
     ))
@@ -44,6 +46,8 @@ export default function App() {
             <StateCard />
             {boxComponents}
             {jokeComponents}
+            <Form />
+            <Footer />
         </div>
     )
 }
