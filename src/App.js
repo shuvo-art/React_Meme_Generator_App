@@ -11,6 +11,7 @@ import jokesData from "./jokesData";
 import Joke from "./components/Joke";
 import Form from "./components/Form";
 import Footer from "./components/Footer";
+import SignUp from "./components/SignUp";
 
 export default function App() {
     const [boxs, setBoxs] = React.useState(boxes);
@@ -48,6 +49,7 @@ export default function App() {
             {jokeComponents}
             <Form />
             <Footer />
+            <SignUp />
         </div>
     )
 }
