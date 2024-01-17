@@ -12,13 +12,10 @@ import Joke from "./components/Joke";
 import Form from "./components/Form";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
+import EffectTest from "./components/EffectTest";
+import WindowTracker from "./components/WindowTracker";
 
 export default function App() {
-    const [starWarsData, setStarWarsData] = React.useState({});
-
-    fetch("https://swapi.dev/api/people/1/")
-        .then(response => response.json())
-        .then(data => setStarWarsData(data))
 
     const [boxs, setBoxs] = React.useState(boxes);
 
@@ -43,6 +40,13 @@ export default function App() {
     const jokeComponents = jokesData.map(joke => (
         <Joke key={joke.id} setup={joke.setup} punchline={joke.punchline} showPunchline={() => showPunchline(joke.id)} />
     ))
+
+    const [show, setShow] = React.useState(true)
+    
+    function toggle() {
+        setShow(prevShow => !prevShow)
+    }
+
     return (
         <div>
             <Header />
@@ -55,9 +59,13 @@ export default function App() {
             {jokeComponents}
             <Form />
             <Footer />
+            <EffectTest />
             <SignUp />
-            <div>
-                <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
+                <div className="container">
+                <button onClick={toggle}>
+                    Toggle WindowTracker
+                </button>
+                {show && <WindowTracker />}
             </div>
         </div>
     )
