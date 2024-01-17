@@ -14,6 +14,12 @@ import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 
 export default function App() {
+    const [starWarsData, setStarWarsData] = React.useState({});
+
+    fetch("https://swapi.dev/api/people/1/")
+        .then(response => response.json())
+        .then(data => setStarWarsData(data))
+
     const [boxs, setBoxs] = React.useState(boxes);
 
     function toggle(id) {
@@ -50,6 +56,9 @@ export default function App() {
             <Form />
             <Footer />
             <SignUp />
+            <div>
+                <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
+            </div>
         </div>
     )
 }
